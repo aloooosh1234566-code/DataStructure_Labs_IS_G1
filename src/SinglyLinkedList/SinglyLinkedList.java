@@ -5,26 +5,23 @@ public class SinglyLinkedList<E> {
     private Node<E> tail = null;
     private int size = 0;
 
-    public int size() {
+public int size() {
         return size;
     }
-
-    public boolean isEmpty() {
+public boolean isEmpty() {
         return size() == 0;
     }
-
-    public void addFirst(E data) {
+ public void addFirst(E data) {
         Node<E> newNode = new Node(data, head);
         head = newNode;
         if (isEmpty())
             tail = head;
         size++;
     }
-
  public E getFirst() {
-        return head.getData();
+     if (isEmpty())return null;
+     return head.getData();
     }
-
  public E removeFirst() {
         if (isEmpty()) return null;
         E delete = head.getData();
@@ -34,6 +31,45 @@ public class SinglyLinkedList<E> {
             tail = head;
         return delete;
     }
+ public void addLast(E data){
+        Node<E> newNode=new Node(data,null);
+        if (isEmpty()){
+            head=newNode;
+        }
+        else {
+            tail.setNext(newNode);
+        }
+     tail=newNode;
+     size++;
+
+ }
+public E getLast() {
+        if (isEmpty())return null;
+        return tail.getData();
+    }
+public E removeLast(){
+    if (isEmpty())return null;
+    E delete=tail.getData();
+    if(head==tail){
+        head=null;
+        tail=null;
+    }
+    else {
+        Node<E>temp=head;
+        while (temp.getNext()!=tail){
+            temp=temp.getNext();
+        }temp.setNext(null);
+        tail=temp;
+    }
+    size--;
+    return delete;
+
+}
+
+
+
+
+
  public void display(){
         Node<E>temp=head;
         while (temp!=null){
@@ -44,6 +80,13 @@ public class SinglyLinkedList<E> {
 
 
 }
+
+
+
+
+
+
+
 class Node<E>{
 private E data;
 private Node<E> next;
