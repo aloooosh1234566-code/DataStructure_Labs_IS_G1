@@ -9,7 +9,7 @@ public class Main {
         dlist.addLast(40);
         dlist.removeFirst();
         dlist.removeLast();
-        dlist.display();    ///////  null<---head<--->10<-->30<-->tail-->null
+        dlist.display();    ////////  null<---head<--->10<-->30<-->tail-->null
 
 
 
